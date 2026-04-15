@@ -1,0 +1,331 @@
+# ============================================================================
+# Python & Virtual Environments
+# ============================================================================
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.pythonenv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# ============================================================================
+# Environment & API Keys
+# ============================================================================
+
+# Environment variables (contains API keys!)
+.env
+.env.local
+.env.*.local
+.env.production
+.env.staging
+
+# API keys (explicit patterns for safety)
+*_API_KEY
+*_SECRET
+*.pem
+*.key
+*.crt
+
+# ============================================================================
+# Data & Cache Files
+# ============================================================================
+
+# Raw data cache (created by data loaders)
+data/cache/
+data/*.csv
+data/*.parquet
+data/*.h5
+data/*.feather
+
+# Feature cache (computed features)
+features/cache/
+features/*.pkl
+features/*.joblib
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================================================
+# Streamlit & Logging
+# ============================================================================
+
+# Streamlit configuration (if contains secrets)
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# Streamlit cache
+.streamlit/cache/
+.streamlit/uploads/
+
+# Log files
+*.log
+logs/
+log/
+*.log.*
+debug.log
+error.log
+
+# ============================================================================
+# IDE & Editor Files
+# ============================================================================
+
+# VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.~*
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# ============================================================================
+# OS Generated Files
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+*.directory
+
+# ============================================================================
+# Documentation & Build Outputs
+# ============================================================================
+
+# Documentation build
+docs/_build/
+docs/api/
+site/
+
+# MkDocs
+site/
+.cache/
+
+# Sphinx
+docs/_build/
+
+# Generated documentation
+*.aux
+*.out
+*.toc
+*.lof
+*.lot
+
+# ============================================================================
+# Testing & Performance
+# ============================================================================
+
+# Performance benchmarks
+*.benchmark
+perf/
+profile/
+
+# Load testing
+*.jmx
+*.jtl
+
+# ============================================================================
+# Project-Specific
+# ============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Excel export files (if user downloads)
+exports/
+downloads/
+*.xlsx
+*.xls
+
+# PDF exports
+*.pdf
+
+# Image exports (if users save charts)
+exports/charts/
+*.png
+*.jpg
+*.jpeg
+*.svg
+
+# Custom user data
+user_data/
+custom_tickers.json
+portfolio_history.csv
+
+# ============================================================================
+# Docker (if used later)
+# ============================================================================
+
+docker-compose.override.yml
+.dockerignore
+*.dockerignore
+
+# ============================================================================
+# Secret scanning (prevent accidental commits)
+# ============================================================================
+
+# AWS
+.aws/
+aws/
+
+# SSH keys
+*.pem
+*.ppk
+id_rsa
+id_dsa
+
+# ============================================================================
+# Exception: Keep example files but not actual data
+# ============================================================================
+
+!data/example_*.csv
+!data/example_*.parquet
+!features/example_*.pkl
+!*.example
+!.env.example
+
+# ============================================================================
+# Keep empty directories structure
+# ============================================================================
+
+!data/cache/.gitkeep
+!features/cache/.gitkeep
+!exports/.gitkeep
+!logs/.gitkeep
+
+# ============================================================================
+# Large files warning (optional - requires Git LFS or block)
+# ============================================================================
+
+# Block large model files
+*.h5
+*.pb
+*.onnx
+*.pth
+*.ckpt
+*.safetensors
+
+# Block large dataset files
+*.npy
+*.npz
+*.arrow
+*.rec

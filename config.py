@@ -47,8 +47,8 @@ AI_ADJACENT_TICKERS = [
 ALL_TICKERS = AI_TICKERS + AI_ADJACENT_TICKERS
 
 # Benchmark tickers
-BENCHMARK_TICKER = 'SPY'      # S&P 500 ETF (market proxy for OLS regressions)
-AI_INDEX_TICKER = 'QQQ'       # Nasdaq 100 ETF (AI sector benchmark)
+BENCHMARK_TICKER: str = 'SPY'      # S&P 500 ETF (market proxy for OLS regressions)
+AI_INDEX_TICKER: str = 'QQQ'       # Nasdaq 100 ETF (AI sector benchmark)
 
 # ============================================================================
 # AI EVENT DATES
@@ -119,8 +119,9 @@ FRED_SERIES = {
 # EVENT STUDY PARAMETERS
 # ============================================================================
 
-ESTIMATION_WINDOW = (-120, -20)   # Trading days before event for OLS estimation
-EVENT_WINDOW = (-10, 10)           # Trading days around event for CAR computation
+ESTIMATION_WINDOW: tuple[int, int] = (-120, -20)   # Trading days before event for OLS estimation
+EVENT_WINDOW: tuple[int, int] = (-10, 10)           # Trading days around event for CAR computation
+MIN_ESTIMATION_DAYS: int = 60
 
 # Confidence level for CAR bands (95% = 1.96, 90% = 1.645)
 CAR_CONFIDENCE_LEVEL = 0.95
@@ -129,9 +130,19 @@ CAR_CONFIDENCE_LEVEL = 0.95
 # DATA CACHING
 # ============================================================================
 
-CACHE_TTL = 3600                  # Cache time-to-live in seconds (1 hour)
-MAX_RETRIES = 3                   # Max retries for API calls
-RETRY_BACKOFF_FACTOR = 2          # Exponential backoff multiplier
+CACHE_TTL_SECONDS: int = 3600          # Cache time-to-live in seconds (1 hour)   
+MAX_RETRIES: int = 3                   # Max retries for API calls
+RETRY_BACKOFF_FACTOR: int = 2          # Exponential backoff multiplier
+PRICE_INTERVAL: str = '1d'
+
+# ============================================================================
+# Volatility thresholds
+# ============================================================================
+
+REALIZED_VOL_WINDOW: int = 21
+ROLLING_BETA_WINDOW: int = 63
+VIX_LOW_THRESHOLD: float = 15.0
+VIX_HIGH_THRESHOLD: float = 25.0
 
 # ============================================================================
 # API KEYS (loaded from .env file)
@@ -195,23 +206,23 @@ RISK_FREE_RATE = 0.045
 # HELPER FUNCTIONS
 # ============================================================================
 
-def get_tickers_by_category(category: str) -> list:
-    """Return tickers by category."""
-    categories = {
-        'ai_pure': AI_TICKERS,
-        'ai_adjacent': AI_ADJACENT_TICKERS,
-        'all': ALL_TICKERS,
-        'benchmark': [BENCHMARK_TICKER],
-        'ai_index': [AI_INDEX_TICKER]
-    }
-    return categories.get(category, [])
+# def get_tickers_by_category(category: str) -> list:
+#     """Return tickers by category."""
+#     categories = {
+#         'ai_pure': AI_TICKERS,
+#         'ai_adjacent': AI_ADJACENT_TICKERS,
+#         'all': ALL_TICKERS,
+#         'benchmark': [BENCHMARK_TICKER],
+#         'ai_index': [AI_INDEX_TICKER]
+#     }
+#     return categories.get(category, [])
 
-def get_events_by_category(category: str = None) -> list:
-    """Return events filtered by category."""
-    if category is None:
-        return AI_EVENTS
-    return [e for e in AI_EVENTS if e.get('category') == category]
+# def get_events_by_category(category: str = None) -> list:
+#     """Return events filtered by category."""
+#     if category is None:
+#         return AI_EVENTS
+#     return [e for e in AI_EVENTS if e.get('category') == category]
 
-def get_event_dates() -> list:
-    """Return just the dates of all AI events."""
-    return [e['date'] for e in AI_EVENTS]
+# def get_event_dates() -> list:
+#     """Return just the dates of all AI events."""
+#     return [e['date'] for e in AI_EVENTS]

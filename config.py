@@ -40,7 +40,8 @@ AI_ADJACENT_TICKERS = [
     'KLAC',   # KLA Corporation
     'LRCX',   # Lam Research
     'MU',     # Micron Technology
-    'WDC'     # Western Digital
+    'WDC',    # Western Digital
+    'QCOM',   # Qualcomm Inc
 ]
 
 # Combined universe for sector heatmap
@@ -185,7 +186,7 @@ COLOR_CATEGORIES = {
 }
 
 # Default date range (last 2 years)
-DEFAULT_START_DATE = '2023-01-01'
+DEFAULT_START_DATE = '2022-01-01'
 DEFAULT_END_DATE = '2025-01-01'
 
 # Chart defaults

@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from components.candlestick import annotated_candlestick
-from config import AI_PURE_TICKERS, BENCHMARK_TICKER
+from config import AI_TICKERS, BENCHMARK_TICKER
 from data import (
     fetch_ohlcv,
     fetch_ticker_info,

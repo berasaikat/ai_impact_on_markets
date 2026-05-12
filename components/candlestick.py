@@ -156,12 +156,18 @@ def annotated_candlestick(
     if events:
         for event in events:
             date = event.get("date")
+            if date is None:
+                continue
+            
+            # Convert date to unix timestamp in milliseconds for plotly datetime axis
+            date_ms = pd.to_datetime(date).timestamp() * 1000
+            
             label = event.get("label", "")
             category = event.get("category", "default")
             color = CATEGORY_COLOURS.get(category, "#888888")
 
             fig.add_vline(
-                x=date,
+                x=date_ms,
                 line_dash="dot",
                 line_color=color,
                 annotation_text=label,

@@ -133,8 +133,11 @@ try:
         fig_line.add_trace(go.Scatter(x=primary_df.index, y=primary_df["Close"], mode="lines", name=primary_ticker))
         if show_events and events:
             for ev in events:
-                fig_line.add_vline(x=ev["date"], line_dash="dot", line_color="orange",
-                                   annotation_text=ev["label"], annotation_position="top left")
+                if ev.get("date") is None:
+                    continue
+                date_ms = pd.to_datetime(ev["date"]).timestamp() * 1000
+                fig_line.add_vline(x=date_ms, line_dash="dot", line_color="orange",
+                                   annotation_text=ev.get("label", ""), annotation_position="top left")
         fig_line.update_layout(
             title=f"{primary_ticker} - Close Price",
             template="plotly_dark",
